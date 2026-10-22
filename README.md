@@ -33,5 +33,5 @@ PORT=8080 npm start  # інший порт
 
 - Відео: `public/video/hero-vertical.mp4` (телефони) і `hero-horizontal.mp4` (ПК) — підміняються в `js/main.js`.
 - Фото: `public/img/*.webp` (оптимізовані, до 1500 px).
-- Кольори бренду з fitberry-bucha.com.ua: `#9f2c57`, `#700c32`, `#fcf9f9`; світліший відтінок бренду для акцентів — `#d73b75`.
+- Кольори бренду з fitberry-bucha.com.ua: `#9f2c57`, `#700c32`, `#fcf9f9`. Логотип і favicon — з оригінального сайту; кутів без заокруглення.
 - Заявки містять `format` (solo/pair), `interest` і `utm_*`.

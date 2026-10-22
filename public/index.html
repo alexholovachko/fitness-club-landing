@@ -11,11 +11,14 @@
   <meta property="og:image" content="img/poster-vertical.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add("js");try{history.scrollRestoration="manual"}catch(e){}</script>
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span></span></div>
 
   <header class="header" id="top">
     <div class="container header__inner">
@@ -27,6 +30,7 @@
         <a href="#faq">Питання</a>
         <a href="#contacts">Контакти</a>
         <a href="tel:+380508103030" class="nav__phone">(050) 810 30 30</a>
+        <a href="#form" class="btn btn--accent nav__cta">Записатися на безкоштовне</a>
       </nav>
       <a href="#form" class="btn btn--accent btn--small header__cta">Записатися</a>
       <button class="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
@@ -65,30 +69,27 @@
       </div>
     </div>
 
-    <!-- FEARS -->
+    <!-- FEARS: flashcard deck -->
     <section class="section section--cream" id="fears">
-      <div class="container">
-        <div class="section__head">
+      <div class="container fears">
+        <div class="fears__intro">
           <p class="eyebrow eyebrow--berry">Знайоме відчуття?</p>
           <h2>Багато хто вагається перед першим кроком. <span>Ми це розуміємо.</span></h2>
+          <div class="deck__ui" hidden>
+            <p class="deck__hint">Торкніться картки — побачите відповідь. Змахніть — наступна.</p>
+            <div class="deck__bar">
+              <button type="button" class="btn btn--accent btn--small" data-deck="next">Наступне питання</button>
+              <span class="deck__count" aria-live="polite"></span>
+            </div>
+          </div>
         </div>
-        <div class="fears">
-          <article class="fear">
-            <p class="fear__q">«Давно не тренувався(лась)… незручно»</p>
-            <p class="fear__a">Ніхто не оцінює. Навантаження — під ваш рівень.</p>
-          </article>
-          <article class="fear">
-            <p class="fear__q">«Не знаю, з чого почати»</p>
-            <p class="fear__a">Не треба знати. Тренер усе покаже.</p>
-          </article>
-          <article class="fear">
-            <p class="fear__q">«Немає часу і сил»</p>
-            <p class="fear__a">Одного заняття досить. Працюємо з 7:30.</p>
-          </article>
-          <article class="fear">
-            <p class="fear__q">«А раптом не сподобається?»</p>
-            <p class="fear__a">Нічого не втрачаєте. Це безкоштовно.</p>
-          </article>
+        <div class="deck" id="deck">
+          <article class="fear"><p class="fear__q">«Давно не тренувався(лась)… незручно»</p><p class="fear__a">Ніхто не оцінює. Навантаження — під ваш рівень.</p></article>
+          <article class="fear"><p class="fear__q">«Не знаю, з чого почати»</p><p class="fear__a">Не треба знати. Тренер усе покаже.</p></article>
+          <article class="fear"><p class="fear__q">«Немає часу і сил»</p><p class="fear__a">Одного заняття досить. Працюємо з 7:30.</p></article>
+          <article class="fear"><p class="fear__q">«Мені вже за 30. Чи не пізно?»</p><p class="fear__a">Починати можна в будь-якому віці. Темп підбирає тренер.</p></article>
+          <article class="fear"><p class="fear__q">«Боюся перестаратися»</p><p class="fear__a">Тренер стежить за технікою і навантаженням.</p></article>
+          <article class="fear"><p class="fear__q">«А раптом не сподобається?»</p><p class="fear__a">Нічого не втрачаєте. Це безкоштовно.</p></article>
         </div>
       </div>
     </section>
@@ -143,7 +144,10 @@
             <li>Один зручний час на двох</li>
             <li>Тренер працює з обома</li>
           </ul>
-          <a href="#form" class="btn btn--accent btn--big" data-format="pair">Записатися вдвох</a>
+          <div class="pair__actions">
+            <a href="#form" class="btn btn--accent btn--big" data-format="pair">Записатися вдвох</a>
+            <button type="button" class="btn btn--ghost btn--big" data-share>Покликати друга</button>
+          </div>
         </div>
       </div>
     </section>
@@ -162,6 +166,7 @@
           <article class="dir"><img src="img/cycle-1.webp" alt="Заняття на сайкл-байку" loading="lazy" width="1000" height="1500"><div class="dir__cap"><h3>Сайкл</h3><p>Кардіо під музику, що заряджає</p></div></article>
           <article class="dir"><img src="img/boxing-pair.webp" alt="Тренування з тренером" loading="lazy" width="1000" height="1500"><div class="dir__cap"><h3>Персональні тренування</h3><p>Програма під вас і вашу ціль</p></div></article>
         </div>
+        <div class="dirs__nav" aria-hidden="true"><span class="dirs__hint">Гортайте →</span><div class="dirs__dots"></div></div>
         <p class="dirs__more">Додаткові послуги: масаж · фітнес-бар · солярій · Kids</p>
       </div>
     </section>
@@ -234,6 +239,13 @@
             <label><input type="radio" name="format" value="pair"><span>Удвох</span></label>
           </fieldset>
 
+          <div class="partner"><div class="partner__in">
+            <label class="field">
+              <span>Ім’я другої людини <i>(необов’язково)</i></span>
+              <input type="text" name="partner" autocomplete="off" placeholder="З ким прийдете">
+            </label>
+          </div></div>
+
           <label class="field">
             <span>Що цікавить <i>(необов’язково)</i></span>
             <select name="interest">
@@ -257,7 +269,7 @@
         </form>
 
         <div class="thanks" hidden>
-          <div class="thanks__icon">✓</div>
+          <div class="thanks__icon"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"><path d="M4 12.5l5 5L20 6.5"/></svg></div>
           <h3>Дякуємо, ми вас почули!</h3>
           <p>Скоро зателефонуємо. До зустрічі у FitBerry!</p>
         </div>
@@ -292,7 +304,6 @@
     </div>
   </footer>
 
-  <a href="#form" class="sticky-cta" aria-label="Записатися на безкоштовне тренування">Безкоштовне тренування — записатися</a>
 
   <script src="js/main.js"></script>
 </body>

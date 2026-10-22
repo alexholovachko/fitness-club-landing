@@ -11,6 +11,7 @@ const TYPES = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml',
   '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp',
+  '.mp4': 'video/mp4', '.woff2': 'font/woff2',
   '.ico': 'image/x-icon', '.json': 'application/json; charset=utf-8',
 };
 
@@ -33,6 +34,7 @@ function handleLead(req, res) {
     const lead = {
       name, phone,
       format: d.format === 'pair' ? 'pair' : 'solo',
+      partner: d.format === 'pair' ? String(d.partner || '').trim().slice(0, 100) : '',
       interest: String(d.interest || '').trim().slice(0, 100),
       utm: d.utm && typeof d.utm === 'object' ? Object.fromEntries(Object.entries(d.utm).slice(0, 10).map(([k, v]) => [String(k).slice(0, 30), String(v).slice(0, 100)])) : {},
       message: String(d.message || '').trim().slice(0, 1000),
@@ -54,9 +56,22 @@ http.createServer((req, res) => {
 
   let file = path.normalize(path.join(PUBLIC, url.pathname === '/' ? 'index.html' : decodeURIComponent(url.pathname)));
   if (!file.startsWith(PUBLIC)) { res.writeHead(403); return res.end(); }
-  fs.readFile(file, (err, data) => {
-    if (err) { res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' }); return res.end('Сторінку не знайдено'); }
-    res.writeHead(200, { 'Content-Type': TYPES[path.extname(file)] || 'application/octet-stream' });
-    res.end(data);
+  fs.stat(file, (err, st) => {
+    if (err || !st.isFile()) { res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' }); return res.end('Сторінку не знайдено'); }
+    const headers = { 'Content-Type': TYPES[path.extname(file)] || 'application/octet-stream', 'Accept-Ranges': 'bytes' };
+    // iOS Safari only plays <video> from servers that answer Range requests with 206
+    const m = /^bytes=(\d*)-(\d*)$/.exec(req.headers.range || '');
+    let start = 0, end = st.size - 1, code = 200;
+    if (m && (m[1] || m[2])) {
+      start = m[1] ? Number(m[1]) : st.size - Number(m[2]);
+      end = m[1] && m[2] ? Math.min(Number(m[2]), st.size - 1) : st.size - 1;
+      if (start > end || start >= st.size) { res.writeHead(416, { 'Content-Range': `bytes */${st.size}` }); return res.end(); }
+      code = 206;
+      headers['Content-Range'] = `bytes ${start}-${end}/${st.size}`;
+    }
+    headers['Content-Length'] = end - start + 1;
+    res.writeHead(code, headers);
+    if (req.method === 'HEAD') return res.end();
+    fs.createReadStream(file, { start, end }).on('error', () => res.destroy()).pipe(res);
   });
 }).listen(PORT, () => console.log(`http://localhost:${PORT}`));

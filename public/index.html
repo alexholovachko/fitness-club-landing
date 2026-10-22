@@ -3,110 +3,295 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Назва клубу — фітнес-клуб</title>
-  <meta name="description" content="Короткий опис фітнес-клубу.">
-  <meta name="theme-color" content="#111111">
+  <title>FitBerry Буча — перше тренування безкоштовно</title>
+  <meta name="description" content="Фітнес-клуб FitBerry у Бучі. Запишіться на перше безкоштовне тренування з тренером — самі або разом із другом, подругою чи партнером. Без зобов’язань.">
+  <meta name="theme-color" content="#0e0a0c">
+  <meta property="og:title" content="FitBerry Буча — перше тренування безкоштовно">
+  <meta property="og:description" content="Прийдіть, познайомтеся з тренером і спробуйте. Самі або вдвох.">
+  <meta property="og:image" content="img/poster-vertical.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="header">
+
+  <header class="header" id="top">
     <div class="container header__inner">
-      <a href="#hero" class="logo">НАЗВА КЛУБУ</a>
-      <button class="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
-      <nav class="nav" id="nav">
-        <a href="#about">Про клуб</a>
-        <a href="#services">Напрями</a>
-        <a href="#pricing">Ціни</a>
-        <a href="#trainers">Тренери</a>
+      <a href="#hero" class="logo" aria-label="FitBerry — на початок">FIT<span>BERRY</span></a>
+      <nav class="nav" id="nav" aria-label="Навігація">
+        <a href="#how">Як це буде</a>
+        <a href="#pair">Удвох</a>
+        <a href="#directions">Напрями</a>
+        <a href="#faq">Питання</a>
         <a href="#contacts">Контакти</a>
-        <a href="#form" class="btn btn--small">Записатися</a>
+        <a href="tel:+380508103030" class="nav__phone">(050) 810 30 30</a>
       </nav>
+      <a href="#form" class="btn btn--accent btn--small header__cta">Записатися</a>
+      <button class="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
     </div>
   </header>
 
   <main>
-    <section id="hero" class="section hero">
-      <div class="container">
-        <h1>Головний заголовок</h1>
-        <p class="lead">Підзаголовок з головною перевагою клубу.</p>
-        <a href="#form" class="btn">Пробне заняття</a>
+
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <video class="hero__video" id="hero-video" autoplay muted loop playsinline preload="metadata"
+             poster="img/poster-vertical.jpg" aria-hidden="true"></video>
+      <div class="hero__shade"></div>
+      <div class="container hero__content">
+        <p class="eyebrow">Фітнес-клуб у Бучі</p>
+        <h1>Перше тренування<br><em>безкоштовно</em></h1>
+        <p class="hero__lead">Без абонементів. Без тиску. Лише ви, тренер і гарний настрій.</p>
+        <div class="hero__actions">
+          <a href="#form" class="btn btn--accent btn--big">Записатися на безкоштовне</a>
+          <a href="#pair" class="btn btn--ghost btn--big">Прийти вдвох</a>
+        </div>
+        <ul class="chips" aria-label="Переваги">
+          <li>Без оплати</li>
+          <li>З тренером</li>
+          <li>Для будь-якого рівня</li>
+        </ul>
       </div>
+      <a href="#how" class="hero__scroll" aria-label="Гортайте вниз"><span></span></a>
     </section>
 
-    <section id="about" class="section">
-      <div class="container">
-        <h2>Про клуб</h2>
-        <p>Текст про клуб.</p>
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Тренажерний зал</span><i>✦</i><span>Функціональний тренінг</span><i>✦</i><span>Йога</span><i>✦</i><span>Сайкл</span><i>✦</i><span>Персональні тренування</span><i>✦</i><span>Групові програми</span><i>✦</i>
+        <span>Тренажерний зал</span><i>✦</i><span>Функціональний тренінг</span><i>✦</i><span>Йога</span><i>✦</i><span>Сайкл</span><i>✦</i><span>Персональні тренування</span><i>✦</i><span>Групові програми</span><i>✦</i>
       </div>
-    </section>
+    </div>
 
-    <section id="services" class="section section--alt">
+    <!-- FEARS -->
+    <section class="section section--cream" id="fears">
       <div class="container">
-        <h2>Напрями</h2>
-        <div class="grid grid--3">
-          <article class="card"><h3>Напрям 1</h3><p>Опис.</p></article>
-          <article class="card"><h3>Напрям 2</h3><p>Опис.</p></article>
-          <article class="card"><h3>Напрям 3</h3><p>Опис.</p></article>
+        <div class="section__head">
+          <p class="eyebrow eyebrow--berry">Знайоме відчуття?</p>
+          <h2>Багато хто вагається перед першим кроком. <span>Ми це розуміємо.</span></h2>
+        </div>
+        <div class="fears">
+          <article class="fear">
+            <p class="fear__q">«Давно не тренувався(лась)… незручно»</p>
+            <p class="fear__a">Ніхто не оцінює. Навантаження — під ваш рівень.</p>
+          </article>
+          <article class="fear">
+            <p class="fear__q">«Не знаю, з чого почати»</p>
+            <p class="fear__a">Не треба знати. Тренер усе покаже.</p>
+          </article>
+          <article class="fear">
+            <p class="fear__q">«Немає часу і сил»</p>
+            <p class="fear__a">Одного заняття досить. Працюємо з 7:30.</p>
+          </article>
+          <article class="fear">
+            <p class="fear__q">«А раптом не сподобається?»</p>
+            <p class="fear__a">Нічого не втрачаєте. Це безкоштовно.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="pricing" class="section">
+    <!-- HOW -->
+    <section class="section section--dark" id="how">
       <div class="container">
-        <h2>Абонементи</h2>
-        <div class="grid grid--3">
-          <article class="card"><h3>Тариф 1</h3><p class="price">0 ₴</p></article>
-          <article class="card"><h3>Тариф 2</h3><p class="price">0 ₴</p></article>
-          <article class="card"><h3>Тариф 3</h3><p class="price">0 ₴</p></article>
+        <div class="section__head">
+          <p class="eyebrow">Що на вас чекає</p>
+          <h2>Як пройде ваше <em>перше тренування</em></h2>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <span class="step__n">1</span>
+            <h3>Залишаєте номер</h3>
+            <p>Це займає хвилину. Ми зателефонуємо і домовимось про час.</p>
+          </li>
+          <li class="step">
+            <span class="step__n">2</span>
+            <h3>Знайомитесь із тренером</h3>
+            <p>Розповідаєте про цілі та самопочуття. Без поспіху.</p>
+          </li>
+          <li class="step">
+            <span class="step__n">3</span>
+            <h3>Тренуєтесь у своєму темпі</h3>
+            <p>Тренер поруч, підказує і підтримує.</p>
+          </li>
+          <li class="step">
+            <span class="step__n">4</span>
+            <h3>Вирішуєте, що далі</h3>
+            <p>Подобається — домовляємось. Ні — просто дякуємо, що зайшли.</p>
+          </li>
+        </ol>
+        <div class="center"><a href="#form" class="btn btn--accent btn--big">Хочу спробувати</a></div>
+      </div>
+    </section>
+
+    <!-- PAIR -->
+    <section class="section section--berry" id="pair">
+      <div class="container pair">
+        <div class="pair__photos" aria-hidden="true">
+          <img class="pair__img pair__img--a" src="img/pair-yoga-1.webp" alt="" loading="lazy" width="1000" height="1500">
+          <img class="pair__img pair__img--b" src="img/boxing-pair.webp" alt="" loading="lazy" width="1000" height="1500">
+          <span class="pair__badge">×2</span>
+        </div>
+        <div class="pair__text">
+          <p class="eyebrow">Вдвох веселіше</p>
+          <h2>Приходьте <em>разом</em> із подругою, чоловіком чи колегою</h2>
+          <p>Разом легше зробити перший крок і цікавіше тренуватися. Запишіться вдвох — підберемо час, щоб ви потрапили на пробне разом.</p>
+                    <ul class="ticks">
+            <li>Менше хвилювання</li>
+            <li>Один зручний час на двох</li>
+            <li>Тренер працює з обома</li>
+          </ul>
+          <a href="#form" class="btn btn--accent btn--big" data-format="pair">Записатися вдвох</a>
         </div>
       </div>
     </section>
 
-    <section id="trainers" class="section section--alt">
+    <!-- DIRECTIONS -->
+    <section class="section section--dark" id="directions">
       <div class="container">
-        <h2>Тренери</h2>
-        <div class="grid grid--4">
-          <article class="card"><h3>Ім’я</h3><p>Спеціалізація.</p></article>
-          <article class="card"><h3>Ім’я</h3><p>Спеціалізація.</p></article>
-          <article class="card"><h3>Ім’я</h3><p>Спеціалізація.</p></article>
-          <article class="card"><h3>Ім’я</h3><p>Спеціалізація.</p></article>
+        <div class="section__head">
+          <p class="eyebrow">Оберіть своє</p>
+          <h2>Що можна спробувати <em>безкоштовно</em></h2>
+          <p class="section__sub">Не знаєте, що підійде? Разом із тренером підберемо.</p>
+        </div>
+        <div class="dirs">
+          <article class="dir"><img src="img/strength.webp" alt="Дівчина тренується в залі" loading="lazy" width="1125" height="1500"><div class="dir__cap"><h3>Тренажерний зал</h3><p>Сучасні тренажери провідних брендів</p></div></article>
+          <article class="dir"><img src="img/group-yoga.webp" alt="Групове заняття" loading="lazy" width="1000" height="1500"><div class="dir__cap"><h3>Групові програми</h3><p>Йога, функціональний тренінг та інші</p></div></article>
+          <article class="dir"><img src="img/cycle-1.webp" alt="Заняття на сайкл-байку" loading="lazy" width="1000" height="1500"><div class="dir__cap"><h3>Сайкл</h3><p>Кардіо під музику, що заряджає</p></div></article>
+          <article class="dir"><img src="img/boxing-pair.webp" alt="Тренування з тренером" loading="lazy" width="1000" height="1500"><div class="dir__cap"><h3>Персональні тренування</h3><p>Програма під вас і вашу ціль</p></div></article>
+        </div>
+        <p class="dirs__more">Додаткові послуги: масаж · фітнес-бар · солярій · Kids</p>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="section section--cream" id="why">
+      <div class="container why">
+        <div class="why__media">
+          <img src="img/team.webp" alt="Команда FitBerry" loading="lazy" width="1072" height="1500">
+        </div>
+        <div class="why__text">
+          <p class="eyebrow eyebrow--berry">Чому FitBerry</p>
+          <h2>Місце, де <span>комфортно</span> з першого візиту</h2>
+          <ul class="why__list">
+            <li><b>Просторо та свіжо</b><span>Просторі зали з вентиляцією та кондиціонуванням.</span></li>
+            <li><b>Сучасне обладнання</b><span>Тренажери Nautilus, Schwinn та інших брендів.</span></li>
+            <li><b>Дружня команда</b><span>Тренери, які мотивують і працюють на результат.</span></li>
+            <li><b>Власна парковка</b><span>І розвинена інфраструктура поруч.</span></li>
+          </ul>
+          <a href="#form" class="btn btn--berry btn--big">Записатися на пробне</a>
         </div>
       </div>
     </section>
 
-    <section id="form" class="section">
+    <!-- FAQ -->
+    <section class="section section--dark" id="faq">
       <div class="container container--narrow">
-        <h2>Запишіться на пробне заняття</h2>
-        <form id="lead-form" class="form" novalidate>
-          <label>Ім’я
-            <input type="text" name="name" autocomplete="name" required minlength="2" placeholder="Ваше ім’я">
-            <small class="error" data-for="name"></small>
-          </label>
-          <label>Телефон
-            <input type="tel" name="phone" autocomplete="tel" required placeholder="+380 __ ___ __ __">
-            <small class="error" data-for="phone"></small>
-          </label>
-          <label>Коментар (необов’язково)
-            <textarea name="message" rows="3" maxlength="1000"></textarea>
-          </label>
-          <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <button type="submit" class="btn">Надіслати</button>
-          <p class="form__status" role="status" aria-live="polite"></p>
-        </form>
+        <div class="section__head">
+          <p class="eyebrow">Відповідаємо наперед</p>
+          <h2>Часті <em>запитання</em></h2>
+        </div>
+        <div class="faq">
+          <details><summary>Чи справді перше тренування безкоштовне?</summary><p>Так. Перше тренування безкоштовне, без прихованих платежів і зобов’язань купувати абонемент.</p></details>
+          <details><summary>Мені потрібна спеціальна підготовка?</summary><p>Ні. Тренер підбере навантаження під ваш поточний рівень. Можна приходити навіть після довгої перерви.</p></details>
+          <details><summary>Що взяти із собою?</summary><p>Зручний спортивний одяг і чисте змінне взуття. Решту підкажемо під час запису.</p></details>
+          <details><summary>Чи можна прийти з другом або партнером?</summary><p>Так, навіть рекомендуємо. Позначте в заявці «Прийдемо вдвох», і ми підберемо час для вас обох.</p></details>
+          <details><summary>Мене будуть умовляти купувати абонемент?</summary><p>Ні. Ми хочемо, щоб ви відчули клуб і вирішили самі, без тиску.</p></details>
+        </div>
       </div>
     </section>
 
-    <section id="contacts" class="section section--alt">
-      <div class="container">
-        <h2>Контакти</h2>
-        <p>Адреса, телефон, графік роботи, соцмережі.</p>
+    <!-- FORM -->
+    <section class="section form-section" id="form">
+      <img class="form-section__bg" src="img/pair-yoga-2.webp" alt="" loading="lazy" aria-hidden="true">
+      <div class="container form-section__inner">
+        <div class="form-section__text">
+          <p class="eyebrow">Залишилась хвилина</p>
+          <h2>Запишіться на <em>безкоштовне</em> тренування</h2>
+          <p class="form-section__lead">Залиште номер — ми зателефонуємо.</p>
+          <p class="form-section__sub">Це нічого не коштує і ні до чого не зобов’язує.</p>
+        </div>
+
+        <form id="lead-form" class="form" novalidate>
+          <div class="form__row">
+            <label class="field">
+              <span>Ваше ім’я</span>
+              <input type="text" name="name" autocomplete="given-name" required minlength="2" placeholder="Наприклад, Олена">
+              <small class="error" data-for="name"></small>
+            </label>
+            <label class="field">
+              <span>Телефон</span>
+              <input type="tel" name="phone" inputmode="tel" autocomplete="tel" required placeholder="+380 __ ___ __ __">
+              <small class="error" data-for="phone"></small>
+            </label>
+          </div>
+
+          <fieldset class="seg">
+            <legend>Як вам зручніше прийти?</legend>
+            <label><input type="radio" name="format" value="solo" checked><span>Сам(а)</span></label>
+            <label><input type="radio" name="format" value="pair"><span>Удвох</span></label>
+          </fieldset>
+
+          <label class="field">
+            <span>Що цікавить <i>(необов’язково)</i></span>
+            <select name="interest">
+              <option value="">Допоможіть мені обрати</option>
+              <option>Тренажерний зал</option>
+              <option>Групові програми (йога, функціональний)</option>
+              <option>Сайкл</option>
+              <option>Персональне тренування</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Коментар <i>(необов’язково)</i></span>
+            <textarea name="message" rows="2" maxlength="1000" placeholder="Зручний час, побажання, питання"></textarea>
+          </label>
+
+          <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" class="btn btn--accent btn--big btn--block">Записатися безкоштовно</button>
+          <p class="form__status" role="status" aria-live="polite"></p>
+          <p class="form__note">Натискаючи кнопку, ви погоджуєтесь на обробку персональних даних для зв’язку з вами.</p>
+        </form>
+
+        <div class="thanks" hidden>
+          <div class="thanks__icon">✓</div>
+          <h3>Дякуємо, ми вас почули!</h3>
+          <p>Скоро зателефонуємо. До зустрічі у FitBerry!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section class="section section--cream" id="contacts">
+      <div class="container contacts">
+        <div class="contacts__info">
+          <p class="eyebrow eyebrow--berry">Як нас знайти</p>
+          <h2>FitBerry, Буча</h2>
+          <dl>
+            <dt>Адреса</dt><dd>Київська область, м. Буча,<br>вул. Нове шосе, 38</dd>
+            <dt>Телефон</dt><dd><a href="tel:+380508103030">(050) 810 30 30</a></dd>
+            <dt>Графік</dt><dd>Пн–Пт: 07:30–21:00<br>Сб: 08:00–19:00</dd>
+          </dl>
+          <a href="https://fitberry-bucha.com.ua/" class="link" target="_blank" rel="noopener">Більше про клуб на fitberry-bucha.com.ua →</a>
+        </div>
+        <div class="contacts__map">
+          <iframe title="Карта: FitBerry, Буча" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=%D0%91%D1%83%D1%87%D0%B0%2C%20%D0%9D%D0%BE%D0%B2%D0%B5%20%D1%88%D0%BE%D1%81%D0%B5%2C%2038&output=embed"></iframe>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">© <span id="year"></span> Назва клубу. Усі права захищено.</div>
+    <div class="container footer__inner">
+      <a href="#hero" class="logo">FIT<span>BERRY</span></a>
+      <p>© <span id="year"></span> Фітнес-клуб FitBerry, Буча</p>
+    </div>
   </footer>
+
+  <a href="#form" class="sticky-cta" aria-label="Записатися на безкоштовне тренування">Безкоштовне тренування — записатися</a>
 
   <script src="js/main.js"></script>
 </body>

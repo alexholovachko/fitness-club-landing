@@ -1,3 +1,5 @@
 node_modules
 leads.jsonl
 .DS_Store
+scratch/
+*.log

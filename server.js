@@ -32,12 +32,15 @@ function handleLead(req, res) {
     if (phone.replace(/\D/g, '').length < 10) return json(res, 422, { ok: false, field: 'phone' });
     const lead = {
       name, phone,
+      format: d.format === 'pair' ? 'pair' : 'solo',
+      interest: String(d.interest || '').trim().slice(0, 100),
+      utm: d.utm && typeof d.utm === 'object' ? Object.fromEntries(Object.entries(d.utm).slice(0, 10).map(([k, v]) => [String(k).slice(0, 30), String(v).slice(0, 100)])) : {},
       message: String(d.message || '').trim().slice(0, 1000),
       createdAt: new Date().toISOString(),
     };
     fs.appendFile(LEADS, JSON.stringify(lead) + '\n', (err) => {
       if (err) return json(res, 500, { ok: false, error: 'write_failed' });
-      console.log('New lead:', lead.name, lead.phone);
+      console.log('New lead:', lead.name, lead.phone, lead.format);
       // TODO: forward to Telegram / email / CRM
       json(res, 200, { ok: true });
     });

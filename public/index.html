@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Назва клубу — фітнес-клуб</title>
+  <meta name="description" content="Короткий опис фітнес-клубу.">
+  <meta name="theme-color" content="#111111">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#hero" class="logo">НАЗВА КЛУБУ</a>
+      <button class="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="nav" id="nav">
+        <a href="#about">Про клуб</a>
+        <a href="#services">Напрями</a>
+        <a href="#pricing">Ціни</a>
+        <a href="#trainers">Тренери</a>
+        <a href="#contacts">Контакти</a>
+        <a href="#form" class="btn btn--small">Записатися</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="section hero">
+      <div class="container">
+        <h1>Головний заголовок</h1>
+        <p class="lead">Підзаголовок з головною перевагою клубу.</p>
+        <a href="#form" class="btn">Пробне заняття</a>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2>Про клуб</h2>
+        <p>Текст про клуб.</p>
+      </div>
+    </section>
+
+    <section id="services" class="section section--alt">
+      <div class="container">
+        <h2>Напрями</h2>
+        <div class="grid grid--3">
+          <article class="card"><h3>Напрям 1</h3><p>Опис.</p></article>
+          <article class="card"><h3>Напрям 2</h3><p>Опис.</p></article>
+          <article class="card"><h3>Напрям 3</h3><p>Опис.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section">
+      <div class="container">
+        <h2>Абонементи</h2>
+        <div class="grid grid--3">
+          <article class="card"><h3>Тариф 1</h3><p class="price">0 ₴</p></article>
+          <article class="card"><h3>Тариф 2</h3><p class="price">0 ₴</p></article>
+          <article class="card"><h3>Тариф 3</h3><p class="price">0 ₴</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="trainers" class="section section--alt">
+      <div class="container">
+        <h2>Тренери</h2>
+        <div class="grid grid--4">
+          <article class="card"><h3>Ім’я</h3><p>Спеціалізація.</p></article>
+          <article class="card"><h3>Ім’я</h3><p>Спеціалізація.</p></article>
+          <article class="card"><h3>Ім’я</h3><p>Спеціалізація.</p></article>
+          <article class="card"><h3>Ім’я</h3><p>Спеціалізація.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="form" class="section">
+      <div class="container container--narrow">
+        <h2>Запишіться на пробне заняття</h2>
+        <form id="lead-form" class="form" novalidate>
+          <label>Ім’я
+            <input type="text" name="name" autocomplete="name" required minlength="2" placeholder="Ваше ім’я">
+            <small class="error" data-for="name"></small>
+          </label>
+          <label>Телефон
+            <input type="tel" name="phone" autocomplete="tel" required placeholder="+380 __ ___ __ __">
+            <small class="error" data-for="phone"></small>
+          </label>
+          <label>Коментар (необов’язково)
+            <textarea name="message" rows="3" maxlength="1000"></textarea>
+          </label>
+          <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" class="btn">Надіслати</button>
+          <p class="form__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="contacts" class="section section--alt">
+      <div class="container">
+        <h2>Контакти</h2>
+        <p>Адреса, телефон, графік роботи, соцмережі.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Назва клубу. Усі права захищено.</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
